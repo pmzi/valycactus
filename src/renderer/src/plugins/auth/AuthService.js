@@ -20,7 +20,7 @@ export default class Auth {
   _wrapLogin() {
     const login = this.login;
     this.login = (...args) => {
-      login.call(this, ...args).then(() => {
+      return login.call(this, ...args).then(() => {
         this.isLoggedIn = true;
       });
     };
@@ -29,7 +29,7 @@ export default class Auth {
   _wrapLogout() {
     const logout = this.logout;
     this.logout = (...args) => {
-      logout.call(this, ...args).then(() => {
+      return logout.call(this, ...args).then(() => {
         this.deleteToken();
         this.isLoggedIn = false;
         this.user = null;
@@ -41,7 +41,7 @@ export default class Auth {
     const fetchUser = this.fetchUser;
     this.isGettingUserInfo = true;
     this.fetchUser = (...args) => {
-      fetchUser
+      return fetchUser
         .call(this, ...args)
         .then(userData => {
           this.user = userData;
