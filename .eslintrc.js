@@ -1,21 +1,26 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
-  extends: ["airbnb-base", "plugin:vue/recommended"],
+  extends: ['plugin:vue/recommended'],
   parserOptions: {
-    parser: "babel-eslint"
+    parser: 'babel-eslint',
   },
   rules: {
-    'max-lines': ['error', {'max': 400, 'skipBlankLines': true, 'skipComments': true}],
+    'max-lines': ['error', { max: 400, skipBlankLines: true, skipComments: true }],
 
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-
+    'quotes': [
+      'error',
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: false },
+    ],
+  
     'vue/no-v-html': 'off',
 
-    "comma-dangle": ["error", "always"],
+    'comma-dangle': ['error', 'always-multiline'],
 
     'import/no-self-import': ['error'],
     'import/named': ['error'],
@@ -53,12 +58,12 @@ module.exports = {
   overrides: [
     {
       files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)',
       ],
       env: {
-        jest: true
-      }
-    }
-  ]
+        jest: true,
+      },
+    },
+  ],
 };

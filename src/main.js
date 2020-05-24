@@ -1,3 +1,3 @@
-import startUI from "./GUI/main";
+import startUI from './GUI/main';
 
 startUI();

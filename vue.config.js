@@ -1,12 +1,14 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   configureWebpack: {
     resolve: {
+      extensions: ['.js', '.vue'],
       alias: {
-        "@": path.join(__dirname, "src/GUI"),
-        "@@": path.join(__dirname, "src/GUI/components")
-      }
-    }
-  }
+        src: path.join(__dirname, 'src'),
+        '@': path.join(__dirname, 'src/GUI'),
+        '@@': path.join(__dirname, 'src/GUI/components'),
+      },
+    },
+  },
 };
