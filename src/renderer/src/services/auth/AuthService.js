@@ -1,16 +1,28 @@
-const TOKEN_KEY = "_token";
+import {
+  setToken as defaultSetToken,
+  getToken as defaultGetToken,
+  deleteToken as defaultDeleteToken
+} from "./tokenHandler";
 
 export default class Auth {
   user = null;
   isLoggedIn = false;
   isGettingUserInfo = false;
-  constructor({ login, logout, fetchUser, setToken, getToken }) {
+  constructor({
+    login,
+    logout,
+    fetchUser,
+    setToken = defaultSetToken,
+    getToken = defaultGetToken,
+    deleteToken = defaultDeleteToken
+  }) {
     if (login) this.login = login;
     if (logout) this.logout = logout;
     if (fetchUser) this.fetchUser = fetchUser;
 
     if (setToken) this.setToken = setToken;
     if (getToken) this.getToken = getToken;
+    if (deleteToken) this.deleteToken = deleteToken;
 
     this._wrapFetchUser();
     this._wrapLogout();
@@ -22,6 +34,7 @@ export default class Auth {
     this.login = (...args) => {
       return login.call(this, ...args).then(() => {
         this.isLoggedIn = true;
+        return this.fetchUser();
       });
     };
   }
@@ -45,7 +58,6 @@ export default class Auth {
         .call(this, ...args)
         .then(userData => {
           this.user = userData;
-          this.isLoggedIn = true;
         })
         .catch(() => {
           this.isLoggedIn = false;
@@ -54,17 +66,5 @@ export default class Auth {
           this.isGettingUserInfo = false;
         });
     };
-  }
-
-  setToken(token) {
-    localStorage.setItem(TOKEN_KEY, token);
-  }
-
-  getToken() {
-    localStorage.getItem(TOKEN_KEY);
-  }
-
-  deleteToken() {
-    localStorage.removeItem(TOKEN_KEY);
   }
 }
