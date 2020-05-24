@@ -1,0 +1,11 @@
+/**
+ * Basic typography style for copy text
+ */
+
+html {
+  font-size: 10px;
+}
+body {
+  color: $text-color;
+  font: normal calc(100% * 1.6) $text-font-stack;
+}
