@@ -1,3 +1,6 @@
 module.exports = {
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["vuetify"],
+  configureWebpack: {
+    target: "electron-renderer"
+  }
 };

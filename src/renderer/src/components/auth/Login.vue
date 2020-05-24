@@ -7,11 +7,19 @@
         </VRow>
         <VRow>
           <VCol cols="12">
-            <VForm>
-              <VTextField label="نام کاربری" v-model="username" />
-              <VTextField label="گذرواژه" v-model="password" />
+            <VForm ref="loginForm" lazy-validation>
+              <VTextField
+                :rules="[isRequired]"
+                label="نام کاربری"
+                v-model="model.username"
+              />
+              <VTextField
+                :rules="[isRequired]"
+                label="گذرواژه"
+                v-model="model.password"
+              />
 
-              <VBtn color="primary">ورود</VBtn>
+              <VBtn @click="submit" color="primary">ورود</VBtn>
             </VForm>
           </VCol>
         </VRow>
@@ -21,13 +29,38 @@
 </template>
 
 <script>
+import { isRequired } from "@/shared/utilities/validation";
+import { auth } from "@/api";
+
 export default {
   name: "Login",
   data() {
     return {
-      username: "",
-      password: ""
+      model: {
+        username: "",
+        password: ""
+      },
+      isValid: true
     };
+  },
+  methods: {
+    submit() {
+      // this.$refs.loginForm.validate();
+
+      if (this.isValid) {
+        auth
+          .login({
+            username: this.model.username,
+            password: this.model.password
+          })
+          .then(() => {
+            alert("Radif");
+          });
+      }
+    }
+  },
+  computed: {
+    isRequired
   }
 };
 </script>

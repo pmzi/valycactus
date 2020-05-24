@@ -1,4 +1,4 @@
-import { ipcRenderer } from "electron";
+const { ipcRenderer } = require("electron");
 import * as actions from "./actions";
 
 function electron(action, data) {

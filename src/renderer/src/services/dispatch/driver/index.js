@@ -1,9 +1,9 @@
 let driver;
 let actions;
 
-if (process.env.MODE === "electron") {
+if (process.env.VUE_APP_MODE === "electron") {
   const electron = require("./electron/index");
-  driver = electron.driver;
+  driver = electron.electron;
   actions = electron.actions;
 }
 
