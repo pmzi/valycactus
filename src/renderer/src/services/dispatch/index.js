@@ -1,5 +1,7 @@
-import driver from "./driver";
+import { driver, actions } from "./driver";
 
-export default function dispatch(action, data) {
-  return driver.send(action, data);
+function dispatch(action, data) {
+  return driver(action, data);
 }
+
+export { dispatch, actions };

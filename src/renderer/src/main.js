@@ -4,6 +4,9 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import registerAuth from "./plugins/auth";
+
+registerAuth(Vue);
 
 Vue.config.productionTip = false;
 

@@ -1,9 +1,10 @@
-import electron from "./electron";
-
 let driver;
+let actions;
 
 if (process.env.MODE === "electron") {
-  driver = electron;
+  const electron = require("./electron/index");
+  driver = electron.driver;
+  actions = electron.actions;
 }
 
-export default driver;
+export { driver, actions };
