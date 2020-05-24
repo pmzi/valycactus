@@ -1,4 +1,4 @@
-import { ipcRenderer } from 'electron';
+import { ipcRenderer } from "electron";
 
 export default function electron(action, data) {
   return new Promise((resolve, reject) => {

@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-// console.log(process.env.MODE);
+import HelloWorld from "./components/HelloWorld.vue";
+
 export default {
   name: "App",
 
