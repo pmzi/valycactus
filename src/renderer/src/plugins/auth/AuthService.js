@@ -5,12 +5,12 @@ export default class Auth {
   isLoggedIn = false;
   isGettingUserInfo = false;
   constructor({ login, logout, fetchUser, setToken, getToken }) {
-    this.login = login;
-    this.logout = logout;
-    this.fetchUser = fetchUser;
+    if (login) this.login = login;
+    if (logout) this.logout = logout;
+    if (fetchUser) this.fetchUser = fetchUser;
 
-    this.setToken = setToken;
-    this.getToken = getToken;
+    if (setToken) this.setToken = setToken;
+    if (getToken) this.getToken = getToken;
 
     this._wrapFetchUser();
     this._wrapLogout();
