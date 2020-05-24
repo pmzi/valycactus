@@ -41,7 +41,7 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-
+// console.log(process.env.MODE);
 export default {
   name: "App",
 
