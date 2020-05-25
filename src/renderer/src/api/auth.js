@@ -9,7 +9,7 @@ function logout() {
 }
 
 function fetchUser() {
-  return dispatch(actions.AUTH_FETCH_USER);
+  return dispatch(actions.AUTH_FETCH_USER).then(({ user }) => user);
 }
 
 export default {

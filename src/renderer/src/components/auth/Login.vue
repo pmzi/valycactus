@@ -57,7 +57,11 @@ export default {
             password: this.model.password
           })
           .then(() => {
-            console.log(this.$auth);
+            console.log(this.$auth)
+            // Login
+          })
+          .catch(() => {
+            // Ridim
           })
           .finally(() => {
             this.loading = false;
