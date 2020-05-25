@@ -27,13 +27,17 @@ export default class Auth {
     this._wrapFetchUser();
     this._wrapLogout();
     this._wrapLogin();
+
+    this.isLoggedIn = Boolean(getToken());
+    if (this.isLoggedIn) this.fetchUser();
   }
 
   _wrapLogin() {
     const login = this.login;
     this.login = (...args) => {
-      return login.call(this, ...args).then(() => {
+      return login.call(this, ...args).then(token => {
         this.isLoggedIn = true;
+        this.setToken(token);
         return this.fetchUser();
       });
     };
@@ -43,11 +47,15 @@ export default class Auth {
     const logout = this.logout;
     this.logout = (...args) => {
       return logout.call(this, ...args).then(() => {
-        this.deleteToken();
-        this.isLoggedIn = false;
-        this.user = null;
+        this._doLogoutProcess();
       });
     };
+  }
+
+  _doLogoutProcess() {
+    this.deleteToken();
+    this.isLoggedIn = false;
+    this.user = null;
   }
 
   _wrapFetchUser() {
@@ -60,7 +68,7 @@ export default class Auth {
           this.user = userData;
         })
         .catch(() => {
-          this.isLoggedIn = false;
+          this._doLogoutProcess();
         })
         .finally(() => {
           this.isGettingUserInfo = false;
