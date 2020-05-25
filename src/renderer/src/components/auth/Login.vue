@@ -50,7 +50,6 @@ export default {
       await this.$refs.loginForm.validate();
 
       if (this.isValid) {
-        debugger;
         this.loading = true;
         this.$auth
           .login({

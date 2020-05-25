@@ -47,12 +47,12 @@ export default class Auth {
     const logout = this.logout;
     this.logout = (...args) => {
       return logout.call(this, ...args).then(() => {
-        this._doLogoutProcess();
+        this.wipUser();
       });
     };
   }
 
-  _doLogoutProcess() {
+  wipUser() {
     this.deleteToken();
     this.isLoggedIn = false;
     this.user = null;
@@ -68,7 +68,7 @@ export default class Auth {
           this.user = userData;
         })
         .catch(() => {
-          this._doLogoutProcess();
+          this.wipUser();
         })
         .finally(() => {
           this.isGettingUserInfo = false;
