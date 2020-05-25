@@ -4388,6 +4388,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vuetify-toast-snackbar@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/vuetify-toast-snackbar/-/vuetify-toast-snackbar-0.6.1.tgz#a90d93c5b1aae3411d7d297f5ee00934fa6952dc"
+  integrity sha512-F2bLPMXiw7qQgX68adSu0zQrMTKODN5JAzCP8AP/HGhz/Bz1z24QbvYcX0fyHnG/yP6PAPkpMCXsLQSq6HV0Ag==
+
 wcwidth@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"

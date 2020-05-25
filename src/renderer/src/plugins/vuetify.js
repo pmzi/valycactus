@@ -1,8 +1,13 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
+import Vuetify, { VSnackbar } from "vuetify/lib";
 
-Vue.use(Vuetify);
+export default function register(Vue) {
+  Vue.use(Vuetify, {
+    components: {
+      VSnackbar
+    }
+  });
 
-export default new Vuetify({
-  rtl: true
-});
+  return new Vuetify({
+    rtl: true
+  });
+}
