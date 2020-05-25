@@ -1,7 +1,9 @@
 import { dispatch, actions } from "@/services/dispatch";
 
 function login({ username, password }) {
-  return dispatch(actions.AUTH_LOGIN, { username, password });
+  return dispatch(actions.AUTH_LOGIN, { username, password }).then(
+    ({ data: { token } }) => token
+  );
 }
 
 function logout() {

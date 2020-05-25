@@ -1,11 +1,24 @@
 export default [
   {
-    path: "/",
+    path: "/login",
     name: "login",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    meta: {
+      auth: false
+    },
     component: () =>
       import(/* webpackChunkName: "auth" */ "@/components/auth/Login.vue")
+  },
+  {
+    path: "/",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "@/components/MasterView.vue"),
+    children: [
+      {
+        path: "",
+        name: "home",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/components/Home.vue")
+      }
+    ]
   }
 ];

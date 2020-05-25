@@ -50,6 +50,7 @@ export default {
       await this.$refs.loginForm.validate();
 
       if (this.isValid) {
+        debugger;
         this.loading = true;
         this.$auth
           .login({
@@ -57,11 +58,10 @@ export default {
             password: this.model.password
           })
           .then(() => {
-            console.log(this.$auth)
-            // Login
+            this.$router.push({ name: "home" });
           })
           .catch(() => {
-            // Ridim
+            // TODO: Snackbar show error
           })
           .finally(() => {
             this.loading = false;

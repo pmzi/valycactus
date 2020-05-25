@@ -1,7 +1,9 @@
 <template>
   <VApp>
     <div class="grey lighten-5">
-      <RouterView />
+      <AuthHandler>
+        <RouterView />
+      </AuthHandler>
     </div>
   </VApp>
 </template>
@@ -9,7 +11,12 @@
 <script>
 import "@/stylesheets/main.scss";
 
+import AuthHandler from "./components/AuthHandler";
+
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    AuthHandler
+  }
 };
 </script>
