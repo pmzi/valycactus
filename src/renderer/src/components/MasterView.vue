@@ -9,7 +9,6 @@
       <VAppBarNavIcon
         @click.stop="isDrawerOpen = !isDrawerOpen"
       ></VAppBarNavIcon>
-      <VToolbarTitle>ولی کاکتوس</VToolbarTitle>
       <!-- -->
     </VAppBar>
 

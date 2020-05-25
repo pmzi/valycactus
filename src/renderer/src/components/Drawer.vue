@@ -8,10 +8,11 @@
     <VListItem>
       <VListItemContent>
         <VListItemTitle class="title">
-          Application
+          ولی کاکتوس
         </VListItemTitle>
         <VListItemSubtitle>
-          subtext
+          خوش آمدید
+          {{ $auth.user.name }}
         </VListItemSubtitle>
       </VListItemContent>
     </VListItem>
@@ -49,12 +50,11 @@ export default {
     return {
       items: [
         {
-          title: "Dashboard",
+          title: "داشبورد",
           icon: "mdi-view-dashboard",
           to: { name: "home" }
         },
-        { title: "Photos", icon: "mdi-image" },
-        { title: "About", icon: "mdi-help-box" }
+        { title: "خروج", icon: "mdi-exit-to-app", to: { name: "logout" } }
       ],
       right: null
     };

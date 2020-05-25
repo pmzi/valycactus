@@ -1,12 +1,18 @@
 export default [
   {
-    path: "/login",
+    path: "/auth/login",
     name: "login",
     meta: {
       auth: false
     },
     component: () =>
       import(/* webpackChunkName: "auth" */ "@/components/auth/Login.vue")
+  },
+  {
+    path: "/auth/logout",
+    name: "logout",
+    component: () =>
+      import(/* webpackChunkName: "auth" */ "@/components/auth/Logout.vue")
   },
   {
     path: "/",
