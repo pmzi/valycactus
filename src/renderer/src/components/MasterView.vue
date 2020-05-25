@@ -1,24 +1,41 @@
 <template>
   <VApp>
-    <VNavigationDrawer app>
-      <!-- -->
-      Hey
-    </VNavigationDrawer>
+    <!-- <v-navigation-drawer app permanent> -->
+    <!-- -->
+    <!-- </v-navigation-drawer> -->
+    <Drawer v-model="isDrawerOpen" />
 
+    <VAppBar app>
+      <VAppBarNavIcon
+        @click.stop="isDrawerOpen = !isDrawerOpen"
+      ></VAppBarNavIcon>
+      <VToolbarTitle>ولی کاکتوس</VToolbarTitle>
+      <!-- -->
+    </VAppBar>
+
+    <!-- Sizes your content based upon application components -->
     <VContent>
+      <!-- Provides the application the proper gutter -->
       <VContainer fluid>
+        <!-- If using vue-router -->
         <RouterView></RouterView>
       </VContainer>
     </VContent>
-
-    <VFooter app>
-      <!-- -->
-    </VFooter>
   </VApp>
 </template>
 
 <script>
+import Drawer from "./Drawer";
+
 export default {
-  name: "MasterView"
+  name: "MasterView",
+  components: {
+    Drawer
+  },
+  data() {
+    return {
+      isDrawerOpen: false
+    };
+  }
 };
 </script>

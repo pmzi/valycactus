@@ -9,17 +9,17 @@
           <VCol cols="12">
             <VForm ref="loginForm" v-model="isValid" lazy-validation>
               <VTextField
+                v-model="model.username"
                 :rules="[isRequired]"
                 label="نام کاربری"
-                v-model="model.username"
               />
               <VTextField
+                v-model="model.password"
                 :rules="[isRequired]"
                 label="گذرواژه"
-                v-model="model.password"
               />
 
-              <VBtn :loading="loading" @click="submit" color="primary"
+              <VBtn :loading="loading" color="primary" @click="submit"
                 >ورود</VBtn
               >
             </VForm>

@@ -1,8 +1,6 @@
 import VuetifyToast from "vuetify-toast-snackbar";
 
 export default function register(Vue) {
-  Vue.component('');
-
   Vue.use(VuetifyToast, {
     x: "right", // default
     y: "bottom", // default
