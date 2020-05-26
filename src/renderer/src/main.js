@@ -3,10 +3,13 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import vuetify from "./plugins/vuetify";
+import registerVuetify from "./plugins/vuetify";
 import registerAuth from "./plugins/auth";
+import registerVuetifyToast from "./plugins/vuetifyToast";
 
 registerAuth(Vue);
+registerVuetifyToast(Vue);
+const vuetify = registerVuetify(Vue);
 
 Vue.config.productionTip = false;
 
