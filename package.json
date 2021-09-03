@@ -45,7 +45,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "normalize.css": "^8.0.1",
